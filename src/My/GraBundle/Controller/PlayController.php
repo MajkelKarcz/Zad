@@ -24,7 +24,7 @@ class PlayController extends Controller {
      */
     public function newAction($nick)
     {   
-        $item=$this->getDoctrine()->getRepository('MyGraBundle:Items')->findOneById('1'); 
+        $item=$this->getDoctrine()->getRepository('MyGraBundle:Items')->findOneById('3'); 
         $Player = $this->getDoctrine()->getRepository('MyGraBundle:Players')->findOneByName($nick);
         if($Player === NULL){
             //nie ma takiego gracza
@@ -37,8 +37,8 @@ class PlayController extends Controller {
         $Heroes->setStamina('100');
         $Heroes->setStr('0');
         $Heroes->setWeight('0');
-        $Heroes->setItem1($item);
-        $Heroes->setItem2('0');
+        $Heroes->setItem1(NULL);
+        $Heroes->setItem2($item);
         $Heroes->setItem3('0');
         $dm = $this->getDoctrine()->getManager();
         //$dm->persist($Heroes);
@@ -51,8 +51,8 @@ class PlayController extends Controller {
         $Heroes->setStamina('100');
         $Heroes->setStr('0');
         $Heroes->setWeight('0');
-        $Heroes->setItem1($item);
-        $Heroes->setItem2('0');
+        $Heroes->setItem1(NULL);
+        $Heroes->setItem2($item);
         $Heroes->setItem3('0');
         $dm = $this->getDoctrine()->getManager();
         $dm->persist($Heroes);

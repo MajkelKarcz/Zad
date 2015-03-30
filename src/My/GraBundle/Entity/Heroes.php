@@ -71,9 +71,8 @@ class Heroes
     private $item1;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="item2", type="integer")
+    * @ORM\ManyToOne(targetEntity="Items", inversedBy="heroes")
+     *@ORM\JoinColumn(name="Items_id2", referencedColumnName="id")
      */
     private $item2;
     

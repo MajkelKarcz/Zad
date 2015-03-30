@@ -238,6 +238,6 @@ class Items
         $this->heroes->removeElement($heroes);
     }
     public function __toString() {
-        return ($this->getName().' '. $this->getWeight());
+        return ($this->getName().' Waga '. $this->getWeight());
     }
 }
