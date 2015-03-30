@@ -10,10 +10,10 @@ use My\GraBundle\Entity\Heroes;
 use My\GraBundle\Entity\Items;
 use Symfony\Component\HttpFoundation\Request;
 use My\GraBundle\Form\Type\RegisterType;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
     /**
-     * @Route("/game/play/{nick}")
+     * @Route("/game/play/{object_nick}")
      * 
      */
 class PlayController extends Controller {
@@ -64,11 +64,13 @@ class PlayController extends Controller {
     }
     /**
      * @Route("/statistic",name="url_statistic")
-     * 
+     * @ParamConverter("Heroes", class="MyGraBundle:Heroes", options = { "mapping":{"object_nick": "name"} })
      */
     public function statisticAction($nick)
     {    
-        $Heroes = $this->getDoctrine()->getRepository('MyGraBundle:Heroes')->findOneByName($nick);
+        var_dump($Heroes);
+        die;
+        //$Heroes = $this->getDoctrine()->getRepository('My:GraBundle:Heroes')->findOneByName($nick);
         $dm=  $this->getDoctrine()->getManager();
         $dm->flush();
         if($Heroes === NULL){
