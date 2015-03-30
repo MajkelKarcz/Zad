@@ -1,0 +1,15 @@
+{% extends "::layout.html.twig" %}
+{% block content %}
+<h3>Logowanie</h3>
+<p>
+<form action="check" method="POST">
+Name:<br>
+<input type="text" name="name">
+<br>
+Password:<br>
+<input type="password" name="pass">
+<br><br>
+<input type="submit" value="Submit">
+</form>
+</p>
+{% endblock %}
